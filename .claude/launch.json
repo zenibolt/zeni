@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "zeni-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:\\Site - zeni\\site\\node_modules\\vite\\bin\\vite.js",
+        "C:\\Site - zeni\\site",
+        "--port",
+        "5173",
+        "--strictPort"
+      ],
+      "port": 5173
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Zeni — criador de vídeo e imagem com IA. Filmes curtos, cinematográficos e orientados a marca. Direção, geração com identidade travada, animação, locução, montagem e finalização." />
+  <meta name="theme-color" content="#0A0A0B" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <title>Zeni — A máquina gera. A direção decide.</title>
+</head>
+<body>
+  <a class="skip-link" href="#trabalhos">Pular para os trabalhos</a>
+
+  <!-- Fundo interativo: grade de quadros que reage ao cursor (só depois da hero) -->
+  <canvas class="backdrop" id="backdrop" aria-hidden="true"></canvas>
+
+  <!-- Loader -->
+  <div class="loader" id="loader" role="status" aria-label="Carregando o filme de abertura">
+    <p class="loader__label mono">carregando o filme</p>
+    <div class="loader__track"><div class="loader__bar" id="loaderBar"></div></div>
+    <p class="loader__pct mono" id="loaderPct">0%</p>
+  </div>
+
+  <!-- 1. HERO — canvas fixado, sequência controlada pela rolagem -->
+  <section class="hero" id="hero" aria-label="Abertura cinematográfica">
+    <div class="hero__stage" id="heroStage">
+      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <img class="hero__poster" id="heroPoster" alt="Zeni de costas em um estúdio escuro, usando um fone de ouvido rosa" hidden />
+      <div class="hero__overlay">
+        <header class="hero__head">
+          <p class="mono hero__slate">zeni · direção &amp; ia</p>
+          <p class="mono hero__slate hero__slate--right">sc, brasil · remoto</p>
+        </header>
+        <div class="hero__title-block">
+          <h1 class="hero__title">Zeni</h1>
+          <p class="hero__line">Vídeo e imagem com IA — curto, cinematográfico, orientado a marca.</p>
+        </div>
+        <div class="hero__foot">
+          <p class="mono hero__scroll-hint" id="scrollHint">role para desmontar<span class="hero__scroll-tick" aria-hidden="true"></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. VIRADA -->
+  <section class="turn" id="virada" aria-label="A máquina gera. A direção decide.">
+    <p class="turn__phrase">
+      <span class="turn__machine">A máquina gera.</span>
+      <span class="turn__director">A direção <em>decide</em>.</span>
+    </p>
+  </section>
+
+  <!-- 3. TRABALHOS -->
+  <section class="works" id="trabalhos" aria-labelledby="worksTitle">
+    <header class="section-head">
+      <p class="mono section-head__eyebrow">cena 03 · trabalhos</p>
+      <h2 class="section-head__title" id="worksTitle">Trabalhos</h2>
+    </header>
+    <div class="works__grid" id="worksGrid"><!-- itens injetados por gallery.js --></div>
+  </section>
+
+  <!-- Detalhe do trabalho (overlay) -->
+  <div class="work-detail" id="workDetail" role="dialog" aria-modal="true" aria-labelledby="workDetailTitle" hidden>
+    <button class="work-detail__close mono" id="workDetailClose" aria-label="Fechar detalhe do trabalho">fechar ✕</button>
+    <div class="work-detail__inner" id="workDetailInner"></div>
+  </div>
+
+  <!-- 4. COMO EU TRABALHO -->
+  <section class="method" id="metodo" aria-labelledby="methodTitle">
+    <header class="section-head">
+      <p class="mono section-head__eyebrow">cena 04 · método</p>
+      <h2 class="section-head__title" id="methodTitle">Como eu trabalho</h2>
+    </header>
+    <div class="method__intro">
+      <p>Não vendo ferramenta. Dirijo. A IA entra no meu pipeline como uma câmera entra no set: obedecendo ao roteiro.</p>
+    </div>
+    <ol class="method__list">
+      <li class="method__step">
+        <span class="method__num" aria-hidden="true">01</span>
+        <div class="method__body">
+          <h3>Direção e roteiro</h3>
+          <p>Todo projeto nasce como decupagem: o que a câmera vê, por quanto tempo, e por quê. Escrevo o filme antes de gerar um único quadro.</p>
+        </div>
+      </li>
+      <li class="method__step">
+        <span class="method__num" aria-hidden="true">02</span>
+        <div class="method__body">
+          <h3>Geração de imagem com identidade travada</h3>
+          <p>Personagem, produto e paleta são travados em folhas de referência antes da produção. A mesma cara, o mesmo objeto, o mesmo mundo — do primeiro ao último plano.</p>
+        </div>
+      </li>
+      <li class="method__step">
+        <span class="method__num" aria-hidden="true">03</span>
+        <div class="method__body">
+          <h3>Animação</h3>
+          <p>A câmera nunca para. Cada plano é gerado já em movimento — órbita, dolly, push in — porque quadro parado é feed que continua rolando.</p>
+        </div>
+      </li>
+      <li class="method__step">
+        <span class="method__num" aria-hidden="true">04</span>
+        <div class="method__body">
+          <h3>Locução</h3>
+          <p>Voz dirigida como ator: intenção, ritmo e pausa. A narração é escrita para o corte, não colada por cima dele.</p>
+        </div>
+      </li>
+      <li class="method__step">
+        <span class="method__num" aria-hidden="true">05</span>
+        <div class="method__body">
+          <h3>Montagem</h3>
+          <p>Cortes de seis a oito segundos, sempre. É o ritmo que segura atenção sem virar ruído.</p>
+        </div>
+      </li>
+      <li class="method__step">
+        <span class="method__num" aria-hidden="true">06</span>
+        <div class="method__body">
+          <h3>Finalização</h3>
+          <p>Texto e logo entram aqui — em pós-produção, nunca gerados por IA. Marca não é alucinação: é pixel exato, na cor exata.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 5. SOBRE -->
+  <section class="about" id="sobre" aria-labelledby="aboutTitle">
+    <header class="section-head">
+      <p class="mono section-head__eyebrow">cena 05 · sobre</p>
+      <h2 class="section-head__title" id="aboutTitle">Sobre o Zeni</h2>
+    </header>
+    <div class="about__layout">
+      <figure class="about__figure">
+        <img id="aboutImage" alt="Zeni de perfil em um estúdio de edição escuro, iluminado pelo brilho do monitor, com o fone rosa no pescoço" loading="lazy" width="1600" height="900" />
+        <figcaption class="mono">estúdio · sessão de montagem</figcaption>
+      </figure>
+      <div class="about__text">
+        <p>Sou o Zeni. Dirijo filme curto feito com IA generativa, e a palavra que sustenta essa frase é <em>dirijo</em>.</p>
+        <p>Trabalho de Tubarão, em Santa Catarina, atendendo o Brasil inteiro de forma remota. Fintech, sports tech, eventos, logística e mercado imobiliário: verticais diferentes, a mesma obsessão. Filme curto que parece caro, porque foi dirigido como se fosse.</p>
+        <p>A máquina gera variações infinitas. O meu trabalho é dizer não para quase todas.</p>
+      </div>
+    </div>
+    <div class="about__versions" id="aboutVersions" aria-label="Retratos do Zeni">
+      <!-- mosaico de retratos injetado por main.js -->
+    </div>
+  </section>
+
+  <!-- 6. CTA FINAL -->
+  <section class="cta" id="contato" aria-labelledby="ctaTitle">
+    <p class="mono cta__eyebrow">cena 06 · contato</p>
+    <h2 class="cta__title" id="ctaTitle">Sua marca tem<br />um filme parado<br />na cabeça.</h2>
+    <p class="cta__sub">Me conta a ideia. Eu devolvo a decupagem.</p>
+    <div class="cta__actions">
+      <a class="cta__whats" href="https://wa.me/5548991218075?text=Ol%C3%A1%2C%20Zeni!%20Cheguei%20pelo%20seu%20site%20e%20quero%20um%20or%C3%A7amento%20para%20um%20v%C3%ADdeo." target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+      <a class="cta__ig mono" href="https://www.instagram.com/zeni7.ia/" target="_blank" rel="noopener">@zeni7.ia ↗</a>
+    </div>
+    <footer class="cta__footer mono">
+      <p>zeni · tubarão, sc · atendimento remoto para todo o brasil</p>
+    </footer>
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

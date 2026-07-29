@@ -1,0 +1,15 @@
+# dependências e build (regeneráveis com npm install / npm run build)
+site/node_modules/
+site/dist/
+
+# material bruto de referência — nunca fica no site, só serviu de input
+# para a geração de mídia (fotos originais, vídeos de referência, exports
+# intermediários do Runway). Pesado e não é usado em runtime.
+referencias-fone/
+referencias-perfil-zeni/
+referencias-video-zeni/
+assets-gerados/
+
+# arquivos de sistema
+.DS_Store
+Thumbs.db
