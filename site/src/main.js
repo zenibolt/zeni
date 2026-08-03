@@ -208,25 +208,8 @@ async function boot() {
   ScrollTrigger.refresh();
 }
 
-// ---------- mosaico de retratos (Sobre) ----------
+// ---------- imagem principal (Sobre) ----------
 function fillAboutMedia() {
-  const versions = [
-    { src: '/media/about/zeni-studio.webp', cap: 'estúdio · luz dura' },
-    { src: '/media/about/zeni-editorial.webp', cap: 'editorial · pb' },
-    { src: '/media/about/zeni-cozinha.webp', cap: 'domingo · café' },
-    { src: '/media/about/zeni-phones.webp', cap: 'set · making of' },
-  ];
-  const versionsWrap = document.getElementById('aboutVersions');
-  versionsWrap.innerHTML = versions
-    .map(
-      (v) => `
-      <figure class="about__version">
-        <img src="${v.src}" alt="Retrato do Zeni — ${v.cap}" loading="lazy" width="900" height="1200" />
-        <figcaption class="mono">${v.cap}</figcaption>
-      </figure>`
-    )
-    .join('');
-
   const aboutImg = document.getElementById('aboutImage');
   if (!aboutImg.getAttribute('src')) aboutImg.src = '/media/about-studio.webp';
 }

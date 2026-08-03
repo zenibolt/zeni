@@ -506,26 +506,6 @@ a { color: inherit; }
   font-weight: 340;
 }
 
-.about__versions {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-1);
-  padding: var(--space-3) var(--pad-x);
-}
-@media (min-width: 768px) {
-  .about__versions { grid-template-columns: repeat(4, 1fr); }
-  .about__versions .about__version:nth-child(even) { transform: translateY(var(--space-2)); }
-}
-
-.about__version { margin: 0; display: grid; gap: 0.5rem; }
-.about__version img {
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  width: 100%;
-  filter: grayscale(0.2) contrast(1.05);
-  background: var(--surface);
-}
-
 /* ============ CTA ============ */
 .cta {
   min-height: 100dvh;
