@@ -14,6 +14,16 @@ export const works = [
       'Site institucional completo para uma transportadora catarinense que roda o país: direção visual, estrutura e publicação.',
   },
   {
+    id: 'gbcutz',
+    name: 'Gabriel Braga Cutz',
+    tag: 'barbearia · site',
+    image: '/media/works/gbcutz.webp',
+    alt: 'Página inicial do site da barbearia Gabriel Braga Cutz, em Tubarão-SC',
+    link: 'https://gbcutz.com.br',
+    resumo:
+      'Site de agendamento para uma barbearia de Tubarão: direção visual, estrutura e publicação.',
+  },
+  {
     id: 'reset-company',
     name: 'Reset Company',
     tag: 'agência · site',
